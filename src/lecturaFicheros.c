@@ -18,6 +18,11 @@ int main (int argc, char *argv[])
     printf("El descriptor del fichero %s es %d\n",argv[1],fd);
     int readbytes = read(fd,buffer,SIZE);
     printf("Se han leido %d bytes, en lugar de %d bytes.\n",readbytes,SIZE);
+    char *puntero = "hola\n";
+    for(int i=0; i<10; i++)  {
+
+        write(fd,puntero,5);
+    }
     close(fd);
     return 0;
 }
