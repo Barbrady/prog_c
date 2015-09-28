@@ -16,4 +16,19 @@ int main (int argc, char* argv[])
 		p = argv[1];
 		printf("El puntero apunta a %s.\n",p);
 	}
+
+	for(int i=0; i<4; i++)  
+	{
+		printf("%c",*p);
+		p++;
+	}
+	printf("\n");
+	printf("%d",*p);
+	printf("\n");
+	p++;
+	printf("%d",*p);
+	printf("\n");
+	printf("La dirección de string es %p\n",string);
+	printf("Y el puntero apunta actualmente a %p\n",p);
+	printf("La diferencia en bytes es de %d\n",p-string);
 }
