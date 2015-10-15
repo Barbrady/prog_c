@@ -1,8 +1,8 @@
 #include <stdio.h>
-
-long long eleva(int i)
+#include <stdlib.h>
+int eleva(int i)
 {
-	long long r = 2;
+	int r = 2;
 	if(i<=0)
 	{
 		return 1;
@@ -11,6 +11,7 @@ long long eleva(int i)
 		for(int c=1; c<i; c++)
 		{
 			r = r*2;
+			printf("En función 2 elevado a %d vale: %d\n",c+1,r);
 		}
 	}
 	return r;
@@ -20,11 +21,17 @@ long long eleva(int i)
 
 
 
-int main ()
+int main (int argc, char *argv[])
 {
-	long long r,e;
-	printf("Exponente: ");
-	scanf("%lli",&e);
-	r=eleva(e);
-	printf("Resultado: %lli.\n",r);
+	if(argc > 1)  { 
+		int r;
+		printf("El argumento es %s.\n",argv[1]);
+		int e = atoi(argv[1]);
+		printf("El argumento pasado a entero es %d\n",e);
+		r=eleva(e);
+		printf("Resultado: %d.\n",r);
+	}
+	else  {
+		printf ("Necesita introducir un valor.\n");
+	}
 }

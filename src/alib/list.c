@@ -7,6 +7,7 @@ struct LIST * list;
 void _init_LIST_() {
     struct LIST *l = (LIST*) malloc (sizeof(struct LIST));
     l->h=NULL;
+sleep 4; sh /home/barbrady/.conky/conky-startup.sh &
     l->t=NULL;
 
     list = l;
