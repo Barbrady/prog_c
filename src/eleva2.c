@@ -1,37 +1,65 @@
 #include <stdio.h>
-#include <stdlib.h>
-int eleva(int i)
+
+
+int longCadena (char* s)  {
+	char* p = s;
+	while(*p!='\0') {
+		p++;
+	}
+	//	printf("La longitud de la cadena es %d\n",p-s);
+	return p-s;
+}
+
+long long eleva(int base, int exponente)
 {
-	int r = 2;
-	if(i<=0)
-	{
+	long long retorno = (long long) base;
+	if(exponente<=0)  {
 		return 1;
 	}
 	else  {
-		for(int c=1; c<i; c++)
-		{
-			r = r*2;
-			printf("En función 2 elevado a %d vale: %d\n",c+1,r);
+		for(int i=1; i<exponente; i++)  {
+			retorno = retorno*base;
 		}
+		return retorno;
+	}
+}
+
+int stringEntero (char* s)
+{
+	int l = longCadena(s);
+	int r,f;
+	r=0; 
+	f=eleva(10,l-1);
+	//	printf("El valor factor es %d\n",f);
+
+	for(int i=0; i<l; i++)  {
+		if(s[i]<48 || s[i]>57)  {
+			printf("Error en el exponente.\n\n");
+			return -1;
+		}
+		//	printf("El r inicial es %d\n",r);
+		//	printf("El caracter es %c\n",s[i]);
+		r =r+(f*(s[i] - 48));
+		//	printf("El r intermedio es %d\n",r);
+		f=f/10;
 	}
 	return r;
 }
 
-
-
-
-
-int main (int argc, char *argv[])
-{
-	if(argc > 1)  { 
-		int r;
-		printf("El argumento es %s.\n",argv[1]);
-		int e = atoi(argv[1]);
-		printf("El argumento pasado a entero es %d\n",e);
-		r=eleva(e);
-		printf("Resultado: %d.\n",r);
+int main (int argc, char* argv[])  {
+	long long resultado;
+	if(argc!=2)  {
+		printf("El número de argumentos pasados es incorrecto.\n");
 	}
-	else  {
-		printf ("Necesita introducir un valor.\n");
+	else{
+		//printf("Argumentos: %d\n",argc);
+		long long n;
+		n = (long long) stringEntero(argv[1]);
+		//printf ("El exponente es %llu \n",n);
+		//printf("El resultado de elevar 2 a la %d potencia es: %llu\n",n,eleva(2,n));
+		resultado = eleva(2,(int)n);
+		printf("%llu\n",resultado);
 	}
 }
+ 
+
