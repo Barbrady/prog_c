@@ -1,15 +1,15 @@
-#pragam once
+#pragma once
 
-struct node {
+typedef struct node  {
     void *val;
     struct node *next;
-}
+}node;
 
-struct LIST {
-    struct node * h;
-    struct node * t;
-}
+typedef struct LIST {
+    int* val;
+    struct LIST* next;
+}LIST;
 
 LIST *_init_LIST_ ();
-void insert(void *element);
-
+void insert(struct LIST *p, int element);
+int sizeList(LIST* p);
