@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 int longCadena (char* s)  {
 	char* p = s;
 	while(*p!='\0') {
