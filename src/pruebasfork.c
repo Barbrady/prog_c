@@ -13,8 +13,8 @@ int main ()  {
 		printf("Error en la creación del fork.\n");
 	}
 	if(pid==0) {  
-		printf("Este es el proceso hijo con pid=%d.\n",getppid());
-		execl("/bin/ls","ls","-a",NULL);
+		printf("Este es el proceso hijo con pid=");
+		execl("/home/barbrady/bin/npid","npid",NULL);
 		exit(1);
 	}
 	printf("Este es el proceso padre con pid=%d.\n",pid);
