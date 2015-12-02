@@ -5,7 +5,7 @@
 
 int main()  {
 	LIST* l;
-    int v[SIZE];
+	    int v[SIZE];
 	l = _init_LIST_();
 	for(int i=0; i<100; i++)  {
 		v[i] = i;
@@ -17,7 +17,7 @@ int main()  {
         int *p = getValue(l->h);
         printf("%d ",*p);
 		l->h = l->h->next;
-    }
+	}
 	printf("\n");
 	*/
 	int *f;
