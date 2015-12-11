@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 int main ()  {
-	int pid;
+	int pid, status;	
 
 	printf("Vamos a probar el creado de procesos con fork.\n");
 
@@ -18,6 +20,7 @@ int main ()  {
 		//execl("/home/barbrady/bin/npid","npid",NULL);
 		exit(1);
 	}
+	waitpid(pid, &status, 0 );
 	printf("Este es el proceso padre donde pid=%d.\n",pid);
 	printf("Y esto arroja su getipd() = %d\n",getpid());
 	
