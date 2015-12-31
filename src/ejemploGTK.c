@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <gtk/gtk.h>
 #include <gtk-2.0/gtk/gtk.h>
-
 
 int main (int argc, char *argv[])  {
 	GtkWidget *ventana;

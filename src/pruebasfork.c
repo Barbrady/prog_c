@@ -23,6 +23,7 @@ int main ()  {
 	waitpid(pid, &status, 0 );
 	printf("Este es el proceso padre donde pid=%d.\n",pid);
 	printf("Y esto arroja su getipd() = %d\n",getpid());
+	printf("El valor status es %d\n", status);
 	
 	
 
