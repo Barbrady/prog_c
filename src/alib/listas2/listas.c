@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 tipo_lista *_iniciar_lista() {
 	tipo_lista *lista=NULL;
 	return lista;
@@ -33,7 +34,7 @@ int insertar_en_lista(tipo_lista *lista, void *elemento)  {
 		lista=nodo_nuevo;
 	}
 	else{
-		*(nodo_nuevo)->next = lista->next;
+		(*nodo_nuevo)->next = lista->next;
 		lista->next = nodo_nuevo;
 	}
 
