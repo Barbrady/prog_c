@@ -28,14 +28,14 @@ tipo_lista *_iniciar_lista() {
 int insertar_en_lista(tipo_lista *lista, void *elemento)  {
 	tipo_lista *nodo_nuevo;
 	nodo_nuevo = (tipo_lista*) malloc(sizeof(tipo_lista));
-	nodo_nuevo->value = elemento;
+	(*nodo_nuevo)->value = elemento;
 
 	if(lista==NULL)  {
 		lista=nodo_nuevo;
 	}
 	else{
-		(*nodo_nuevo)->next = lista->next;
-		lista->next = nodo_nuevo;
+		(*nodo_nuevo)->next = (*lista)->next;
+		(*lista)->next = &nodo_nuevo;
 	}
 
 	}
