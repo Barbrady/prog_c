@@ -55,6 +55,27 @@ int obtener_tamanio_lista(tipo_lista *lista)  {
 	}
 }
 
+int elmiminar_primer_elemento(tipo_lista *lista)  {
+	if (lista->next==NULL) return 0;
+	tipo_lista *p = lista->next;
+	printf("elemento pasado\n");
+	lista->next = lista->next->next;
+	free(p);
+	return 0;
+}
 
+void * obtener_elmento(tipo_lista *lista)  {
+	return lista->value;
+}
 
+int imprimir_lista(tipo_lista *lista)  {
+	int i = obtener_tamanio_lista(lista);
+	printf("La lista tiene un tamaño de %d elementos.\n",i);
+	for (int j=0; j<i; j++)  {
+		int * p = (int *) obtener_elmento(lista);
+		printf("El elemento %d tiene el valor %d.\n",j+1,*p);
+		elmiminar_primer_elemento(lista);
+	}
+	return 0;
+}
 

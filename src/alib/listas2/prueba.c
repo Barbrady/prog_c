@@ -9,6 +9,5 @@ int main ()  {
 	int elemento2 = 23;
 	i = insertar_en_lista(lista, &elemento);
 	i = insertar_en_lista(lista, &elemento2);
-	printf("El tamaño de la lista es: %d.\n",obtener_tamanio_lista(lista));
-
+	i = imprimir_lista(lista);
 }

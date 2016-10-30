@@ -28,3 +28,6 @@ typedef struct tipo_lista  {
 tipo_lista *_iniciar_lista();
 int insertar_en_lista(tipo_lista *lista, void *elemento);
 int obtener_tamanio_lista(tipo_lista *lista);
+int imprimir_lista(tipo_lista *lista);
+int eliminar_primer_elemento(tipo_lista *lista);
+void * obtener_elemento(tipo_lista *lista);
