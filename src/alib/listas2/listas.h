@@ -19,12 +19,12 @@
 
 //Definimos el tipo de nodo
 
-struct node  {
+typedef struct tipo_lista  {
 	void *value;
-	struct node *next;
-};
+	struct tipo_lista *next;
+}tipo_lista;
 
-typedef struct node *tipo_lista;
 
 tipo_lista *_iniciar_lista();
 int insertar_en_lista(tipo_lista *lista, void *elemento);
+int obtener_tamanio_lista(tipo_lista *lista);
