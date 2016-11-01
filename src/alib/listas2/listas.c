@@ -38,6 +38,7 @@ int insertar_en_lista(tipo_lista *lista, void *elemento)  {
 	tipo_lista *nueva_lista;
 	nueva_lista = (tipo_lista*) malloc(sizeof(tipo_lista));
 	nueva_lista->value = elemento;
+	nueva_lista->next = NULL;
 
 	if(lista==NULL)  {
 		lista=nueva_lista;
@@ -65,17 +66,24 @@ int elmiminar_primer_elemento(tipo_lista *lista)  {
 }
 
 void * obtener_elmento(tipo_lista *lista)  {
-	return lista->value;
+	void * p;
+	p = lista->value;
+	return p;
 }
 
 int imprimir_lista(tipo_lista *lista)  {
-	int i = obtener_tamanio_lista(lista);
-	printf("La lista tiene un tamaño de %d elementos.\n",i);
+	//int i = obtener_tamanio_lista(lista);
+	int *p = lista->value;
+	printf("Elemento 1 %d",*p);
+	/*printf("La lista tiene un tamaño de %d elementos.\n",i);
+	
 	for (int j=0; j<i; j++)  {
 		int * p = (int *) obtener_elmento(lista);
-		printf("El elemento %d tiene el valor %d.\n",j+1,*p);
-		elmiminar_primer_elemento(lista);
+		printf("%d",*p);
+	//	printf("El elemento %d tiene el valor %d.\n",j+1,*p);
+		//elmiminar_primer_elemento(lista);
 	}
+	*/
 	return 0;
 }
 
