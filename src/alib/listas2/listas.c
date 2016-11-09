@@ -27,7 +27,7 @@ tipo_lista *_iniciar_lista() {
 		printf("No hay memoria disponible en el sistema.\n");
 	}
 	else  {
-		//p->value = NULL;
+		p->value = NULL;
 		p->next = NULL;
 	}
 	return p;
@@ -35,18 +35,25 @@ tipo_lista *_iniciar_lista() {
 }
 
 int insertar_en_lista(tipo_lista *lista, void *elemento)  {
-	tipo_lista *nueva_lista;
-	nueva_lista = (tipo_lista*) malloc(sizeof(tipo_lista));
-	nueva_lista->value = elemento;
-	nueva_lista->next = NULL;
+	
+	
+	if(lista->value==NULL)  {
+		lista->value=elemento;
 
-	if(lista==NULL)  {
-		lista=nueva_lista;
 	}
 	else{
-		nueva_lista->next = lista->next;
-		lista->next = nueva_lista;
+		tipo_lista *nueva_lista;
+		nueva_lista = _iniciar_lista();
+		nueva_lista->value = elemento;
+		
+		printf("Entramos en insertar elemento puntero nueva_lista->next %p y lista %p\n",nueva_lista->next,lista);
+		nueva_lista->next = lista;
+		lista = nueva_lista;
+		
+		printf("Y una vez insertado es nueva_lista->next %p y lista %p\n",nueva_lista->next,lista);
+		printf("Y el value de lista es %d",*((int*) lista->value));
 	}
+	
 	return 0;
 }
 int obtener_tamanio_lista(tipo_lista *lista)  {
