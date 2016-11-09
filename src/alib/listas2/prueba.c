@@ -1,21 +1,35 @@
 #include <stdio.h>
 #include "listas.h"
 
-
 int main ()  {
-	tipo_lista *lista = _iniciar_lista();
-	int i;
-	int elemento = 10;
-	int elemento_dos = 20;
-	int *p,*q;
-	p=&elemento;
-	q=&elemento_dos;
-	printf("Los valores de la lista son lista = %p, lista->next = %p y lista->value = %p\n",lista,lista->next,lista->value);
-	printf("Insertarmos un valor: %p\n",p);
-	insertar_en_lista(lista,p);
-	insertar_en_lista(lista,q);
-	printf("Los valores de la lista son lista = %p, lista->next = %p y lista->value = %p\n",lista,lista->next,lista->value);
+	LISTA *l;
+	int *e1,*e2,*e3;
+	int a,b,c;
+	
+	l=_iniciar_lista();
+	printf("La lista inicial tiene como puntero %p\n",l);
 
-	printf("Los valores punteros de las listas son lista = %p,lista-next = %p y lista-next-next = %p\n",lista,lista->next,lista->next->next);
+	a=10;
+	b=20;
+	c=30;
+	e1 = &a;
+	e2 = &b;
+	e3 = &c;
+	
+	printf("----------Se procede a insertar elementos en lista------------\n\n\n");
+	
+	printf("Se inserta el primer elemento:\n");
+	insertar_en_lista(l,e1);
+//	printf("Direccion de lista %p, de lista->siguiente %p y el valor del elemento %d.\n\n",l,l->siguiente,*(int*)l->elemento);
 
+	printf("Se inserta el segundo elemento:\n");
+	insertar_en_lista(l,e2);
+//	printf("Direccion de lista %p, de lista->siguiente %p y el valor del elemento %d.\n\n",l,l->siguiente,*(int*)l->elemento);
+
+	printf("Se inserta el tercer elemento:\n");
+	insertar_en_lista(l,e3);
+//	printf("Direccion de lista %p, de lista->siguiente %p y el valor del elemento %d.\n\n",l,l->siguiente,*(int*)l->elemento);
+	
+	printf("El numero de elemntos de la lista es %d\n",elementos_en_lista(l));
 }
+	

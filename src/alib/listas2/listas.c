@@ -1,96 +1,41 @@
-/*
- * =====================================================================================
- *
- *       Filename:  listas.c
- *
- *    Description:  Implementacion del tipo lista
- *
- *        Version:  1.0
- *        Created:  14/09/16 15:53:37
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Aitor Alkorta (), oficial.barbrady@gmail.com
- *   Organization:  
- *
- * =====================================================================================
- */
-#include "listas.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include "listas.h"
 
-
-tipo_lista *_iniciar_lista() {
-	tipo_lista *p;
-	p = (tipo_lista*) malloc(sizeof(tipo_lista));
-	if(p==NULL)  {
-		printf("No hay memoria disponible en el sistema.\n");
+LISTA* _iniciar_lista()  {
+	LISTA *l;
+	l = (LISTA*) malloc(sizeof(LISTA));
+	if(l==NULL)  {
+		printf("Error, no se ha podido reservar memoria.\n");
+		return NULL;
 	}
 	else  {
-		p->value = NULL;
-		p->next = NULL;
+		//printf("Lista creada con dirección %p\n",l);
+		l->elemento=NULL;
+		l->siguiente=NULL;
 	}
-	return p;
-
+	return l;
 }
 
-int insertar_en_lista(tipo_lista *lista, void *elemento)  {
-	
-	
-	if(lista->value==NULL)  {
-		lista->value=elemento;
-
+int insertar_en_lista(LISTA *l, void* e)  {
+	if(l->elemento==NULL)  {
+		l->elemento = e;
+		return 0;
 	}
-	else{
-		tipo_lista *nueva_lista;
-		nueva_lista = _iniciar_lista();
-		nueva_lista->value = elemento;
-		
-		printf("Entramos en insertar elemento puntero nueva_lista->next %p y lista %p\n",nueva_lista->next,lista);
-		nueva_lista->next = lista;
-		lista = nueva_lista;
-		
-		printf("Y una vez insertado es nueva_lista->next %p y lista %p\n",nueva_lista->next,lista);
-		printf("Y el value de lista es %d",*((int*) lista->value));
-	}
-	
-	return 0;
-}
-int obtener_tamanio_lista(tipo_lista *lista)  {
-	if(lista->next==NULL) return 0;
 	else  {
-		return 1+(obtener_tamanio_lista(lista->next));
+		LISTA* nuevo_nodo;
+		nuevo_nodo = _iniciar_lista();
+		nuevo_nodo->elemento = e;
+		nuevo_nodo->siguiente = l;
+		l= nuevo_nodo;
 	}
-}
-
-int elmiminar_primer_elemento(tipo_lista *lista)  {
-	if (lista->next==NULL) return 0;
-	tipo_lista *p = lista->next;
-	printf("elemento pasado\n");
-	lista->next = lista->next->next;
-	free(p);
 	return 0;
 }
 
-void * obtener_elmento(tipo_lista *lista)  {
-	void * p;
-	p = lista->value;
-	return p;
-}
-
-int imprimir_lista(tipo_lista *lista)  {
-	//int i = obtener_tamanio_lista(lista);
-	int *p = lista->value;
-	printf("Elemento 1 %d",*p);
-	/*printf("La lista tiene un tamaño de %d elementos.\n",i);
-	
-	for (int j=0; j<i; j++)  {
-		int * p = (int *) obtener_elmento(lista);
-		printf("%d",*p);
-	//	printf("El elemento %d tiene el valor %d.\n",j+1,*p);
-		//elmiminar_primer_elemento(lista);
+int elementos_en_lista(LISTA* l)  {
+	if(l->siguiente == NULL) {
+		return 0;
 	}
-	*/
-	return 0;
+	else  {
+		return 1+elementos_en_lista(l->siguiente);
+	}
 }
-
