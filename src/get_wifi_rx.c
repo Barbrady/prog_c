@@ -13,6 +13,7 @@ int obtener_ratio(char *FICHERO)  {
 	    }
 	    else {
 		fgets(lectura,8,fp);
+		//printf("El descriptor del fichero %s es %d\n",FICHERO,fp);
 		fclose(fp);
 		valor = atoi(lectura);
 	    }
@@ -26,7 +27,7 @@ int main()  {
 	for(;;sleep(1))  {
 		valor_nuevo = obtener_ratio(RATIO);
 		valor = valor_nuevo - valor_viejo;
-		printf("El valor leido es %d Kbps\n",valor/1024);
+		printf("El valor leido es %d Kbps\n",valor);
 		valor_viejo = valor_nuevo;
 	}
 }
