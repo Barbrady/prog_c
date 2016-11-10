@@ -34,7 +34,7 @@ LISTA* insertar_en_lista(LISTA *l, void* e)  {
 }
 
 int elementos_en_lista(LISTA* l)  {
-	if(l->siguiente == NULL) {
+	if(l== NULL) {
 		return 0;
 	}
 	else  {
