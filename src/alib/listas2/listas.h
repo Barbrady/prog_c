@@ -1,10 +1,10 @@
 #pragma once
 
-typedef struct LISTA {
+typedef struct TIPO_LISTA {
 	void *elemento;
-	struct LISTA *siguiente;
+	struct TIPO_LISTA *siguiente;
 }LISTA;
 
 LISTA *_iniciar_lista();
-int insertar_en_lista(LISTA *l, void* e);
+LISTA * insertar_en_lista(LISTA *l, void* e);
 int elementos_en_lista(LISTA *l);

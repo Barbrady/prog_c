@@ -19,15 +19,18 @@ int main ()  {
 	printf("----------Se procede a insertar elementos en lista------------\n\n\n");
 	
 	printf("Se inserta el primer elemento:\n");
-	insertar_en_lista(l,e1);
+	l=insertar_en_lista(l,e1);
+	printf("La lista inicial tiene como puntero %p\n",l);
 //	printf("Direccion de lista %p, de lista->siguiente %p y el valor del elemento %d.\n\n",l,l->siguiente,*(int*)l->elemento);
 
 	printf("Se inserta el segundo elemento:\n");
-	insertar_en_lista(l,e2);
+	l=insertar_en_lista(l,e2);
+	printf("La lista inicial tiene como puntero %p\n",l);
 //	printf("Direccion de lista %p, de lista->siguiente %p y el valor del elemento %d.\n\n",l,l->siguiente,*(int*)l->elemento);
 
 	printf("Se inserta el tercer elemento:\n");
-	insertar_en_lista(l,e3);
+	l=insertar_en_lista(l,e3);
+	printf("La lista inicial tiene como puntero %p\n",l);
 //	printf("Direccion de lista %p, de lista->siguiente %p y el valor del elemento %d.\n\n",l,l->siguiente,*(int*)l->elemento);
 	
 	printf("El numero de elemntos de la lista es %d\n",elementos_en_lista(l));

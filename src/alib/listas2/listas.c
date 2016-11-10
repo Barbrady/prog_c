@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "listas.h"
 
 LISTA* _iniciar_lista()  {
@@ -16,19 +17,20 @@ LISTA* _iniciar_lista()  {
 	return l;
 }
 
-int insertar_en_lista(LISTA *l, void* e)  {
+LISTA* insertar_en_lista(LISTA *l, void* e)  {
 	if(l->elemento==NULL)  {
 		l->elemento = e;
-		return 0;
+		return l;
 	}
 	else  {
 		LISTA* nuevo_nodo;
 		nuevo_nodo = _iniciar_lista();
 		nuevo_nodo->elemento = e;
 		nuevo_nodo->siguiente = l;
-		l= nuevo_nodo;
+		l = nuevo_nodo;
+		printf("La lista despues de la insereccion tiene una direccion de %p\n",l);
+		return l;
 	}
-	return 0;
 }
 
 int elementos_en_lista(LISTA* l)  {
