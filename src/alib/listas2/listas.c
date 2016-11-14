@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include "listas.h"
 
+int lista_vacia(LISTA* l)  {
+	if(l == NULL || (l->elemento==NULL && l->siguiente==NULL))  {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
 LISTA* _iniciar_lista()  {
 	LISTA *l;
 	l = (LISTA*) malloc(sizeof(LISTA));
@@ -28,16 +37,25 @@ LISTA* insertar_en_lista(LISTA *l, void* e)  {
 		nuevo_nodo->elemento = e;
 		nuevo_nodo->siguiente = l;
 		l = nuevo_nodo;
-		printf("La lista despues de la insereccion tiene una direccion de %p\n",l);
 		return l;
 	}
 }
 
 int elementos_en_lista(LISTA* l)  {
-	if(l== NULL) {
+	if(lista_vacia(l)) {
 		return 0;
 	}
 	else  {
 		return 1+elementos_en_lista(l->siguiente);
+	}
+}
+
+void imprimir_lista(LISTA *l)  {
+	LISTA* lista_auxiliar = l;
+	int i=1;
+	while(!lista_vacia(lista_auxiliar))  {
+		printf("Elemento %d es igual a %d\n",i,*((int*)lista_auxiliar->elemento));
+		i++;
+		lista_auxiliar = lista_auxiliar->siguiente;
 	}
 }

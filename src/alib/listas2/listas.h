@@ -8,3 +8,4 @@ typedef struct TIPO_LISTA {
 LISTA *_iniciar_lista();
 LISTA * insertar_en_lista(LISTA *l, void* e);
 int elementos_en_lista(LISTA *l);
+void imprimir_lista(LISTA *l);
