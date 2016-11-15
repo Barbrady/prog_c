@@ -15,7 +15,8 @@ int main ()  {
 		*p=i+1;
 		l=insertar_en_lista(l,p);
 	}
-	printf("El numero de elemntos de la lista es %d\n",elementos_en_lista(l));
+	printf("El numero de elementos de la lista es %d\n",elementos_en_lista(l));
+
 	
 	
 	
