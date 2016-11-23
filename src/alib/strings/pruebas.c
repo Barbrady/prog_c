@@ -20,6 +20,7 @@ int comprobar_palindromo(char* palabra)  {
 
 int main (int argc, char* argv[])  {
 	TIPO_PALABRA palabra = argv[1];
+	TIPO_PALABRA frase = "Hola Que Tal.";
 	int p;
 	if(argc<2)  {
 		printf("Introduzca al menos una palabra.\n");
@@ -31,7 +32,10 @@ int main (int argc, char* argv[])  {
 	}
 	else  {
 		printf("No es palíndromo.\n");
-	}	
+	}
+	frase=eliminar_espacios(frase);
+	printf("Hola Que Tal es igual a %s\n",frase);
+
 		
 
 

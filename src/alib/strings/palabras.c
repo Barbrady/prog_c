@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "palabras.h"
 
 
@@ -18,4 +19,21 @@ int letras_iguales(char letra1, char letra2)  {
 	else  {
 		return 0;
 	}
+}
+
+char *eliminar_espacios(char* texto)  {
+	char* auxiliar,*reserva;
+	auxiliar = (char*) malloc(sizeof(char)) ;
+	reserva = auxiliar;
+	char c = *texto;
+	while(c != '\0')  {
+		if(c != ' ')  {
+			*auxiliar = c;
+			auxiliar++;
+		}
+		texto++;
+		c = *texto;
+	}
+	texto = reserva;
+	return reserva;
 }
