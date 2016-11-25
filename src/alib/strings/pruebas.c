@@ -1,6 +1,26 @@
 #include <stdio.h>
 #include "palabras.h"
+#include <stdlib.h>
 
+int eliminar_espacios_local(char* texto)  {
+	char* auxiliar, *reserva;
+	auxiliar = (char*) malloc(sizeof(char)) ;
+	reserva = auxiliar;
+	char c = *texto;
+	while(c != '\0')  {
+		if(c != ' ')  {
+			*auxiliar = c;
+			auxiliar++;
+		}
+		texto++;
+		c = *texto;
+	}
+	texto = reserva;
+	printf("El texto pasado por puntero es:%s\n",texto);
+	printf("El texto denominado reserva es:%s\n",reserva);
+	return 0;
+}
+							
 int comprobar_palindromo(char* palabra)  {
 	char* primera_letra;
 	char* ultima_letra;
@@ -20,7 +40,7 @@ int comprobar_palindromo(char* palabra)  {
 
 int main (int argc, char* argv[])  {
 	TIPO_PALABRA palabra = argv[1];
-	TIPO_PALABRA frase = "Hola Que Tal.";
+	char* frase = "Hola Que Tal.";
 	int p;
 	if(argc<2)  {
 		printf("Introduzca al menos una palabra.\n");
@@ -33,7 +53,7 @@ int main (int argc, char* argv[])  {
 	else  {
 		printf("No es palíndromo.\n");
 	}
-	frase=eliminar_espacios(frase);
+	eliminar_espacios_local(frase);
 	printf("Hola Que Tal es igual a %s\n",frase);
 
 		
