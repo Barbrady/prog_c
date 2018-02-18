@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int main (int argc, char *argcv[])  
 {
@@ -11,7 +13,7 @@ int main (int argc, char *argcv[])
 
     buffer = "Adios\n";
     printf("El buffer tiene : %s",buffer);
-
+    printf("El número de argumentos es %d\n",argc);
     if((fd = open(fichero,O_RDWR)) == -1)
     {
         printf("Error al abrir el fichero %s\n",fichero);
