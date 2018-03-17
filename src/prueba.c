@@ -17,12 +17,13 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "fmenu.h"
 
-
-int main() {
-	int entero;
-	int *puntero;
-
-	printf("El tamaño de un entero es %d\n", 8*sizeof(int));
-	printf("El tamaño de un puntero es %d\n", 8*sizeof(puntero));
+int main(int argc, char *argv[]) {
+	if (argc<=1)  {
+		printf("No ha introducio argumentos a imprimir, pruebe con ./ejecutable argumento1 argumento2 ...\n");
+		return 0;
+	}
+	imprimir_menu(argc, argv);
 }
