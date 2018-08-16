@@ -8,3 +8,8 @@ int imprimir_menu (int n_argumentos, char* s_argumentos[])  {
 	}
 	return 1;
 }
+
+int main (int argc, char *argv[])   {
+	imprimir_menu(argc, argv);
+	return 0;
+}
