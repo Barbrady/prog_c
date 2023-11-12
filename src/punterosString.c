@@ -1,5 +1,15 @@
 #include <stdio.h>
 
+int longitud_cadena(char *cadena)  {
+	int i=0;
+	while (*cadena != '\0')  {
+		i++;
+		cadena++;
+	}
+	return i;
+}
+
+
 int main (int argc, char* argv[])
 {
 	char *p;
