@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
 	int tFile = strlen (buffer);
 	printf("El tamaño del array es: %d",tFile);
 
-
 	close(fd);
 	printf("\n\n");
 	}
