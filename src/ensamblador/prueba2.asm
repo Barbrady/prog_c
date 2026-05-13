@@ -3,5 +3,8 @@ section .text
     extern printf
 
 main
-    
+   mov rdi, 10
+   mov rdx, 3
+   call calcular
+
 
